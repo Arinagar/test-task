@@ -1,9 +1,9 @@
-import { Followers } from './Followers/Followers';
-
+import { UserCard } from './UserCard/UserCard';
+import css from './Container/Container.module.css';
 export const App = () => {
   return (
-    <div>
-      <Followers />
+    <div className={css.container}>
+      <UserCard />
     </div>
   );
 };
