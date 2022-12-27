@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import css from './Followers.module.css';
 
 export const Followers = () => {
+  let followersNumber = 100500;
   const [followers, setFollowers] = useState(
-    JSON.parse(localStorage.getItem('followers')) ?? 100500
+    JSON.parse(localStorage.getItem('followers')) ?? followersNumber
   );
   const [isFollowing, setIsFollowing] = useState(
     JSON.parse(localStorage.getItem('isFollowing')) ?? false
@@ -23,9 +25,16 @@ export const Followers = () => {
   };
 
   return (
-    <div>
-      <p>{followers} FOLLOWERS</p>
-      <button type="button" onClick={toggleSubscription}>
+    <div className={css.data_wrapper}>
+      <p className={css.tweets}>777 TWEETS</p>
+      <p className={css.followers}>
+        {followers.toLocaleString('en')} FOLLOWERS
+      </p>
+      <button
+        type="button"
+        onClick={toggleSubscription}
+        className={isFollowing ? css.following : css.follow}
+      >
         {isFollowing ? 'FOLLOWING' : 'FOLLOW'}
       </button>
     </div>
